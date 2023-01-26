@@ -26,42 +26,15 @@ Following [this progression][pushups].
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
 
-
-<script>
+<script type="module">
   const ctx = document.getElementById("pushUpsChart");
-
+  
+  import data from "./assets/pushups.json" assert { type: "json" };
+  console.log(data);
 
   new Chart(ctx, {
     type: "line",
-    data: {
-      labels: [
-        "2022-12-25",
-        "2022-12-26",
-        "2022-12-31",
-        "2023-01-07",
-        "2023-01-15",
-        "2023-01-18",
-        "2023-01-22",
-        "2023-01-25"
-      ],
-      datasets: [
-        {
-          label: "Set 1",
-          data: [50, 40, 40, 40, 23, 24, 26, 28],
-          borderWidth: 1
-        },
-        {
-          label: "Set 2",
-          data: [50, 40, 40, 40, 17, 13, 17, 15],
-          borderWidth: 1
-        },
-        {
-          label: "Set 3",
-          data: [50, 40, 40, 40, 10, 10, 14, 12],
-          borderWidth: 1
-        }
-      ]
-    },
+    data: data,
     options: {
       cubicInterpolationMode: "monotone",
       scales: {
