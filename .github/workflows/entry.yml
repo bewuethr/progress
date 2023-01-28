@@ -56,9 +56,8 @@ jobs:
           set2: ${{ inputs.set2 }}
           set3: ${{ inputs.set3 }}
         run: |
-          date=$(date -d "$dateinput" +%F)
           printf '%s,%s,%s,%s,%s\n' \
-              "$dateinput" "$style" "$set1" "$set2" "$set3" \
+              "$(date -d "$dateinput" +%F)" "$style" "$set1" "$set2" "$set3" \
               >> _data/pushups.csv
 
           cat _data/pushups.csv
