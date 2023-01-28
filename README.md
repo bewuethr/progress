@@ -28,7 +28,7 @@ Following [this progression][pushups].
 
 <script type="module">
   const ctx = document.getElementById("pushUpsChart");
-  
+
   import data from "./assets/pushups.json" assert { type: "json" };
   console.log(data);
 
@@ -56,3 +56,5 @@ Following [this progression][pushups].
     }
   });
 </script>
+
+<!-- markdownlint-disable-file MD033 -->
