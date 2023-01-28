@@ -1,0 +1,64 @@
+name: Add new entry
+
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: Date
+        required: true
+        default: today
+        type: string
+      style:
+        description: Style
+        required: true
+        type: choice
+        default: Advanced incline
+        options:
+          - Wall
+          - Incline
+          - Advanced incline
+          - Knee
+          - Full
+      set1:
+        description: Set 1
+        required: true
+        type: number
+      set2:
+        description: Set 2
+        required: true
+        type: number
+      set3:
+        description: Set 3
+        required: true
+        type: number
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
+
+env:
+  TZ: America/Toronto
+
+jobs:
+  entry:
+    name: Add new entry
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3.3.0
+
+      - name: Update CSV
+        env:
+          dateinput: ${{ inputs.date }}
+          style: ${{ inputs.style }}
+          set1: ${{ inputs.set1 }}
+          set2: ${{ inputs.set2 }}
+          set3: ${{ inputs.set3 }}
+        run: |
+          date=$(date -d "$dateinput" +%F)
+          printf '%s,%s,%s,%s,%s\n' \
+              "$dateinput" "$style" "$set1" "$set2" "$set3" \
+              >> _data/pushups.csv
+
+          cat _data/pushups.csv
