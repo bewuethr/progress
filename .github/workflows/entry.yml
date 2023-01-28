@@ -61,3 +61,18 @@ jobs:
               >> _data/pushups.csv
 
           cat _data/pushups.csv
+
+          dates=$(yq -p csv 'map(.Date) | @csv' _data/pushups.csv)
+          set1=$(yq -p csv 'map(.["Set 1"]) | @csv' _data/pushups.csv)
+          set2=$(yq -p csv 'map(.["Set 2"]) | @csv' _data/pushups.csv)
+          set3=$(yq -p csv 'map(.["Set 3"]) | @csv' _data/pushups.csv)
+
+          jq --arg dates "$dates" \
+              --arg set1 "$set1" \
+              --arg set2 "$set2" \
+              --arg set3 "$set3" '
+                  .labels = ($dates | split(","))
+                  | .datasets[0].data = ($set1 | split(",") | map(tonumber))
+                  | .datasets[1].data = ($set2 | split(",") | map(tonumber))
+                  | .datasets[2].data = ($set3 | split(",") | map(tonumber))
+          ' assets/pushups.json
