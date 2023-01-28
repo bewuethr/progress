@@ -22,15 +22,15 @@ on:
       set1:
         description: Set 1
         required: true
-        type: number
+        type: string
       set2:
         description: Set 2
         required: true
-        type: number
+        type: string
       set3:
         description: Set 3
         required: true
-        type: number
+        type: string
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref }}
