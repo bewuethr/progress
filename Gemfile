@@ -1,5 +1,5 @@
 source "https://rubygems.org"
 
-ruby File.open(".tool-versions").grep(/ruby/).first.split.last
+ruby "2.7.4"
 
 gem "github-pages", "~> 227", group: :jekyll_plugins
