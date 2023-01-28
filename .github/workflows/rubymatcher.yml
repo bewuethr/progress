@@ -28,11 +28,16 @@ jobs:
           ' Gemfile)
 
           if [[ $asdfversion != "$gemfversion" ]]; then
-              printf '%s\n' \
-                  "## Version mismatch!" \
-                  "" \
-                  "Gemfile: $gemfversion  " \
-                  ".tool-versions: $asdfversion" >> "$GITHUB_STEP_SUMMARY"
+              cat <<-EOF >> "$GITHUB_STEP_SUMMARY"
+          		## Version mismatch!
+
+          		| File               | Version      |
+          		| -----------------: | -----------: |
+          		| \`Gemfile\`        | $gemfversion |
+          		| \`.tool-versions\` | $asdfversion |
+          	EOF
 
               exit 1
           fi
+
+# vim:tabstop=4
