@@ -25,36 +25,6 @@ Following [this progression][pushups].
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
-
-<script type="module">
-  const ctx = document.getElementById("pushUpsChart");
-
-  import data from "./assets/pushups.json" assert { type: "json" };
-  console.log(data);
-
-  new Chart(ctx, {
-    type: "line",
-    data: data,
-    options: {
-      cubicInterpolationMode: "monotone",
-      scales: {
-        x: {
-          type: "time",
-          title: {
-            text: "Date",
-            display: true
-          }
-        },
-        y: {
-          beginAtZero: true,
-          title: {
-            text: "Reps",
-            display: true
-          }
-        }
-      }
-    }
-  });
-</script>
+<script type="module" src="assets/pushups.js"></script>
 
 <!-- markdownlint-disable-file MD033 -->
