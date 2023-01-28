@@ -60,7 +60,7 @@ jobs:
               "$(date -d "$dateinput" +%F)" "$style" "$set1" "$set2" "$set3" \
               >> _data/pushups.csv
 
-          cat _data/pushups.csv
+          tmpfile=$(mktemp)
 
           dates=$(yq -p csv 'map(.Date) | @csv' _data/pushups.csv)
           set1=$(yq -p csv 'map(.["Set 1"]) | @csv' _data/pushups.csv)
@@ -75,4 +75,13 @@ jobs:
                   | .datasets[0].data = ($set1 | split(",") | map(tonumber))
                   | .datasets[1].data = ($set2 | split(",") | map(tonumber))
                   | .datasets[2].data = ($set3 | split(",") | map(tonumber))
-          ' assets/pushups.json
+          ' assets/pushups.json > "$tmpfile" \
+              && mv "$tmpfile" assets/pushups.json
+
+          git config --global user.name 'github-actions'
+          git config --global user.email \
+              '41898282+github-actions[bot]@users.noreply.github.com'
+
+          git add _data/pushups.csv assets/pushups.json
+          git commit -m "Update pushup data"
+          git push
