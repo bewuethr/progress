@@ -1,6 +1,6 @@
 const ctx = document.getElementById("pushUpsChart");
 
-import data from "../assets/pushups.json" assert { type: "json" };
+import data from "./pushups.json" assert { type: "json" };
 console.log(data);
 
 new Chart(ctx, {
