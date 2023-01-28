@@ -1,0 +1,38 @@
+name: Check that Ruby versions match
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  match:
+    name: Match Ruby versions
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3.3.0
+
+      - name: Compare Ruby versions
+        run: |
+          asdfversion=$(awk '/ruby/ { print $2 }' .tool-versions)
+          gemfversion=$(awk -F'"' '
+              /^ruby "([[:digit:]]+\.){2}[[:digit:]]+"$/ { print $2 }
+          ' Gemfile)
+
+          if [[ $asdfversion != "$gemfversion" ]]; then
+              printf '%s\n' \
+                  "Version mismatch!" \
+                  "" \
+                  "Gemfile: $gemfversion" \
+                  ".tool-versions: $asdfversion"
+
+              exit 1
+          fi
