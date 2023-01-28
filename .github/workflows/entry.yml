@@ -39,6 +39,9 @@ concurrency:
 env:
   TZ: America/Toronto
 
+permissions:
+  contents: write
+
 jobs:
   entry:
     name: Add new entry
