@@ -29,10 +29,10 @@ jobs:
 
           if [[ $asdfversion != "$gemfversion" ]]; then
               printf '%s\n' \
-                  "Version mismatch!" \
+                  "## Version mismatch!" \
                   "" \
-                  "Gemfile: $gemfversion" \
-                  ".tool-versions: $asdfversion"
+                  "Gemfile: $gemfversion  " \
+                  ".tool-versions: $asdfversion" >> "$GITHUB_STEP_SUMMARY"
 
               exit 1
           fi
