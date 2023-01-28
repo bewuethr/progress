@@ -1,29 +1,12 @@
 # progress
 
-Tracking progress of various things.
+Tracking progress of various things. So far:
 
-## Push-ups
+- [Push-ups](https://benjaminwuethrich.dev/progress/#push-ups)
 
-Following [this progression][pushups].
+Built with [Jekyll] and [Chart.js]; the "CMS" is a manually triggered [GitHub
+workflow][wf].
 
-[pushups]: <https://www.hybridcalisthenics.com/pushups>
-
-| Date | Style | Set 1 | Set 2 | Set 3 |
-| ---: | ----- | ----: | ----: | ----: |
-{% for entry in site.data.pushups -%} |
-{{- entry.Date }} |
-{{- entry.Style }} |
-{{- entry["Set 1"] }} |
-{{- entry["Set 2"] }} |
-{{- entry["Set 3"] }} |
-{% endfor %}
-
-<div>
-  <canvas id="pushUpsChart"></canvas>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
-<script type="module" src="assets/pushups.js"></script>
-
-<!-- markdownlint-disable-file MD033 -->
+[jekyll]: <https://jekyllrb.com/>
+[chart.js]: <https://www.chartjs.org/>
+[wf]: <https://github.com/bewuethr/progress/blob/main/.github/workflows/entry.yml>
