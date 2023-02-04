@@ -31,13 +31,24 @@ new Chart(ctx, {
 			tooltip: {
 				position: "average",
 				callbacks: {
-					title: function(context) {
-						let d = new Date(context[0].parsed.x);
+					title: function(items) {
+						let d = new Date(items[0].parsed.x);
 						return d.toLocaleDateString("en-CA", {
 							month: "short",
 							day: "numeric",
 							year: "numeric"
 						});
+					},
+					afterTitle: function(items) {
+						console.log(items);
+						return data.datasets[3].data[items[0].dataIndex];
+					}
+				}
+			},
+			legend: {
+				labels: {
+					filter: function(item, data) {
+						return item.datasetIndex != 3;
 					}
 				}
 			}

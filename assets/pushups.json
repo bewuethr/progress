@@ -63,6 +63,21 @@
         15
       ],
       "borderWidth": 1
+    },
+    {
+      "data": [
+        "Wall",
+        "Incline",
+        "Incline",
+        "Incline",
+        "Advanced incline",
+        "Advanced incline",
+        "Advanced incline",
+        "Advanced incline",
+        "Advanced incline",
+        "Advanced incline",
+        "Advanced incline"
+      ]
     }
   ]
 }
