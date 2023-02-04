@@ -1,7 +1,6 @@
 const ctx = document.getElementById("pushUpsChart");
 
 import data from "./pushups.json" assert { type: "json" };
-console.log(data);
 
 new Chart(ctx, {
 	type: "line",
@@ -21,6 +20,25 @@ new Chart(ctx, {
 				title: {
 					text: "Reps",
 					display: true
+				}
+			}
+		},
+		interaction: {
+			mode: "index",
+			intersect: false
+		},
+		plugins: {
+			tooltip: {
+				position: "average",
+				callbacks: {
+					title: function(context) {
+						let d = new Date(context[0].parsed.x);
+						return d.toLocaleDateString("en-CA", {
+							month: "short",
+							day: "numeric",
+							year: "numeric"
+						});
+					}
 				}
 			}
 		}
