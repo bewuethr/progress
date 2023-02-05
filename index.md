@@ -3,7 +3,7 @@
 Tracking progress of various things.
 
 ## Table of contents
-{:.no_toc}
+{:.no_toc} <!-- markdownlint-disable-line MD022 -->
 
 - (placeholder)
 {:toc}
