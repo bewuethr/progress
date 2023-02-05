@@ -2,6 +2,12 @@
 
 Tracking progress of various things.
 
+## Table of contents
+{:.no_toc}
+
+- (placeholder)
+{:toc}
+
 ## Push-ups
 
 Following [this progression][pushups].
