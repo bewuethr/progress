@@ -2,10 +2,6 @@
 
 Tracking progress of various things.
 
-<!-- markdownlint-disable-next-line MD022 -->
-## Table of contents
-{:.no_toc}
-
 - (placeholder)
 {:toc}
 
