@@ -33,4 +33,14 @@ Following [this progression][pushups].
 <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
 <script type="module" src="assets/pushups.js"></script>
 
+## Pull-ups
+
+Following [this progression][pullups].
+
+[pullups]: <https://www.hybridcalisthenics.com/pullups>
+
+| Date       | Style | Set 1 | Set 2 | Set 3 |
+| ---------: | ----- | ----: | ----: | ----: |
+| 2023-02-06 | Wall  | 50    | 50    | 50    |
+
 <!-- markdownlint-disable-file MD033 -->
