@@ -41,6 +41,12 @@ Following [this progression][pullups].
 
 | Date       | Style | Set 1 | Set 2 | Set 3 |
 | ---------: | ----- | ----: | ----: | ----: |
-| 2023-02-06 | Wall  | 50    | 50    | 50    |
+{% for entry in site.data.pullups -%} |
+{{- entry.Date }} |
+{{- entry.Style }} |
+{{- entry["Set 1"] }} |
+{{- entry["Set 2"] }} |
+{{- entry["Set 3"] }} |
+{% endfor %}
 
 <!-- markdownlint-disable-file MD033 -->
