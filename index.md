@@ -25,7 +25,7 @@ Following [this progression][pushups].
   <canvas id="pushUpsChart"></canvas>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
 <script type="module">
   import data from "./assets/pushups.json" assert { type: "json" };
