@@ -49,4 +49,19 @@ Following [this progression][pullups].
 {{- entry["Set 3"] }} |
 {% endfor %}
 
+## Leg raises
+
+Following [this progression][legraises].
+
+[legraises]: <https://www.hybridcalisthenics.com/legraises>
+
+| Date       | Style | Set 1 | Set 2 |
+| ---------: | ----- | ----: | ----: |
+{% for entry in site.data.legraises -%} |
+{{- entry.Date }} |
+{{- entry.Style }} |
+{{- entry["Set 1"] }} |
+{{- entry["Set 2"] }} |
+{% endfor %}
+
 <!-- markdownlint-disable-file MD033 -->
