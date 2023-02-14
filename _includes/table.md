@@ -16,7 +16,8 @@
 {%- for entry in entries %}
   {%- assign tablerow = "|" %}
   {%- for pair in entry %}
-    {%- assign tablerow = tablerow | append: " " | append: pair[1] | append: " |" %}
+    {%- assign tablerow = tablerow
+      | append: " " | append: pair[1] | append: " |" %}
   {%- endfor %}
   {{ tablerow -}}
 {%- endfor %}
