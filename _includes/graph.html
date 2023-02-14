@@ -3,7 +3,7 @@
 </div>
 
 <script type="module">
-  import data from "./assets/{{ include.workout | downcase }}.json" assert { type: "json" };
+  import data from "./assets/{{ include.workout }}.json" assert { type: "json" };
   import drawChart from "./assets/drawchart.js";
   drawChart("{{ include.workout }}Chart", data);
 </script>
