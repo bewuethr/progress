@@ -1,0 +1,26 @@
+{
+  "labels": [
+    "2023-02-12"
+  ],
+  "datasets": [
+    {
+      "label": "Set 1",
+      "data": [
+        30
+      ],
+      "borderWidth": 1
+    },
+    {
+      "label": "Set 2",
+      "data": [
+        30
+      ],
+      "borderWidth": 1
+    },
+    {
+      "data": [
+        "Knee"
+      ]
+    }
+  ]
+}
