@@ -32,15 +32,7 @@ Following [this progression][pullups].
 
 [pullups]: <https://www.hybridcalisthenics.com/pullups>
 
-| Date       | Style | Set 1 | Set 2 | Set 3 |
-| ---------: | ----- | ----: | ----: | ----: |
-{% for entry in site.data.pullups -%} |
-{{- entry.Date }} |
-{{- entry.Style }} |
-{{- entry["Set 1"] }} |
-{{- entry["Set 2"] }} |
-{{- entry["Set 3"] }} |
-{% endfor %}
+{% include table.md file="pullups" %}
 
 <div>
   <canvas id="pullUpsChart"></canvas>
@@ -58,14 +50,7 @@ Following [this progression][legraises].
 
 [legraises]: <https://www.hybridcalisthenics.com/legraises>
 
-| Date       | Style | Set 1 | Set 2 |
-| ---------: | ----- | ----: | ----: |
-{% for entry in site.data.legraises -%} |
-{{- entry.Date }} |
-{{- entry.Style }} |
-{{- entry["Set 1"] }} |
-{{- entry["Set 2"] }} |
-{% endfor %}
+{% include table.md file="legraises" %}
 
 <div>
   <canvas id="legRaisesChart"></canvas>
