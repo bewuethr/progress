@@ -20,3 +20,5 @@
   {%- endfor %}
   {{ tablerow -}}
 {%- endfor %}
+
+<!-- markdownlint-disable-file MD041 -->
