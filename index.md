@@ -14,27 +14,7 @@ Following [this progression][pushups].
 
 [pushups]: <https://www.hybridcalisthenics.com/pushups>
 
-{% assign header = "|" %}
-{%- assign align = "|" %}
-{%- for pair in site.data.pushups[0] %}
-  {%- assign header = header | append: " " | append: pair[0] | append: " |" %}
-  {%- if pair[0] == "Style" %}
-    {%- assign align = align | append: " -- |" %}
-  {%- else %}
-    {%- assign align = align | append: " -: |" %}
-  {%- endif %}
-{%- endfor %}
-
-{{- header }}
-{{ align }}
-
-{%- for entry in site.data.pushups %}
-  {%- assign tablerow = "|" %}
-  {%- for pair in entry %}
-    {%- assign tablerow = tablerow | append: " " | append: pair[1] | append: " |" %}
-  {%- endfor %}
-  {{ tablerow -}}
-{%- endfor %}
+{% include table.md file="pushups" %}
 
 <div>
   <canvas id="pushUpsChart"></canvas>
