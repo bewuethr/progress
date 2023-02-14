@@ -4,6 +4,7 @@ Tracking progress of various things. So far:
 
 - [Push-ups](https://benjaminwuethrich.dev/progress/#push-ups)
 - [Pull-ups](https://benjaminwuethrich.dev/progress/#pull-ups)
+- [Leg raises](https://benjaminwuethrich.dev/progress/#leg-raises)
 
 Built with [Jekyll] and [Chart.js]; the "CMS" is a manually triggered [GitHub
 workflow][wf].
