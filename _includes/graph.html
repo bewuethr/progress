@@ -1,0 +1,9 @@
+<div>
+  <canvas id="{{ include.workout }}Chart"></canvas>
+</div>
+
+<script type="module">
+  import data from "./assets/{{ include.workout | downcase }}.json" assert { type: "json" };
+  import drawChart from "./assets/drawchart.js";
+  drawChart("{{ include.workout }}Chart", data);
+</script>

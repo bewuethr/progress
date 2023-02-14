@@ -16,15 +16,7 @@ Following [this progression][pushups].
 
 {% include table.md file="pushups" %}
 
-<div>
-  <canvas id="pushUpsChart"></canvas>
-</div>
-
-<script type="module">
-  import data from "./assets/pushups.json" assert { type: "json" };
-  import drawChart from "./assets/drawchart.js";
-  drawChart("pushUpsChart", data);
-</script>
+{% include graph.html workout="pushUps" %}
 
 ## Pull-ups
 
@@ -34,15 +26,7 @@ Following [this progression][pullups].
 
 {% include table.md file="pullups" %}
 
-<div>
-  <canvas id="pullUpsChart"></canvas>
-</div>
-
-<script type="module">
-  import data from "./assets/pullups.json" assert { type: "json" };
-  import drawChart from "./assets/drawchart.js";
-  drawChart("pullUpsChart", data);
-</script>
+{% include graph.html workout="pullUps" %}
 
 ## Leg raises
 
@@ -52,14 +36,6 @@ Following [this progression][legraises].
 
 {% include table.md file="legraises" %}
 
-<div>
-  <canvas id="legRaisesChart"></canvas>
-</div>
-
-<script type="module">
-  import data from "./assets/legraises.json" assert { type: "json" };
-  import drawChart from "./assets/drawchart.js";
-  drawChart("legRaisesChart", data);
-</script>
+{% include graph.html workout="legRaises" %}
 
 <!-- markdownlint-disable-file MD033 -->
