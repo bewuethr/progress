@@ -30,6 +30,7 @@ export default function drawChart(canvasId, data) {
 				tooltip: {
 					position: "average",
 					callbacks: {
+						// Print just YYYY-MM-DD date
 						title: function(items) {
 							let d = new Date(items[0].parsed.x);
 							return d.toLocaleDateString("en-CA", {
@@ -38,16 +39,17 @@ export default function drawChart(canvasId, data) {
 								year: "numeric"
 							});
 						},
+						// Look up style of exercise
 						afterTitle: function(items) {
-							console.log(items);
-							return data.datasets[3].data[items[0].dataIndex];
+							return data.datasets.at(-1).data[items[0].dataIndex];
 						}
 					}
 				},
 				legend: {
+					// Don't print label for dataset with styles
 					labels: {
 						filter: function(item, data) {
-							return item.datasetIndex != 3;
+							return item.text != undefined
 						}
 					}
 				}
