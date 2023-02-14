@@ -14,15 +14,27 @@ Following [this progression][pushups].
 
 [pushups]: <https://www.hybridcalisthenics.com/pushups>
 
-| Date | Style | Set 1 | Set 2 | Set 3 |
-| ---: | ----- | ----: | ----: | ----: |
-{% for entry in site.data.pushups -%} |
-{{- entry.Date }} |
-{{- entry.Style }} |
-{{- entry["Set 1"] }} |
-{{- entry["Set 2"] }} |
-{{- entry["Set 3"] }} |
-{% endfor %}
+{% assign header = "|" %}
+{%- assign align = "|" %}
+{%- for pair in site.data.pushups[0] %}
+  {%- assign header = header | append: " " | append: pair[0] | append: " |" %}
+  {%- if pair[0] == "Style" %}
+    {%- assign align = align | append: " -- |" %}
+  {%- else %}
+    {%- assign align = align | append: " -: |" %}
+  {%- endif %}
+{%- endfor %}
+
+{{- header }}
+{{ align }}
+
+{%- for entry in site.data.pushups %}
+  {%- assign tablerow = "|" %}
+  {%- for pair in entry %}
+    {%- assign tablerow = tablerow | append: " " | append: pair[1] | append: " |" %}
+  {%- endfor %}
+  {{ tablerow -}}
+{%- endfor %}
 
 <div>
   <canvas id="pushUpsChart"></canvas>
