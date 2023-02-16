@@ -34,7 +34,7 @@ on:
 
 jobs:
   entry:
-    name: Add new pushup entry
+    name: Add new pullup entry
     uses: ./.github/workflows/entry.yml
     with:
       exercise: pullups
