@@ -41,5 +41,5 @@ jobs:
       date: ${{ inputs.date }}
       style: ${{ inputs.style }}
       set1: ${{ fromJSON(format('{0}', inputs.set1)) }}
-      set2: ${{ inputs.set2 }}
-      set3: ${{ inputs.set3 }}
+      set2: ${{ fromJSON(format('{0}', inputs.set2)) }}
+      set3: ${{ fromJSON(format('{0}', inputs.set3)) }}
