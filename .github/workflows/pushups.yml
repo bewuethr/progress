@@ -1,4 +1,4 @@
-name: Add pushups
+name: Add push-ups
 
 on:
   workflow_dispatch:
@@ -34,7 +34,7 @@ on:
 
 jobs:
   entry:
-    name: Add new pushup entry
+    name: Add new push-ups entry
     uses: ./.github/workflows/entry.yml
     with:
       exercise: pushups

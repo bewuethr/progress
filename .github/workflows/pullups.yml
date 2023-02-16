@@ -1,4 +1,4 @@
-name: Add pullups
+name: Add pull-ups
 
 on:
   workflow_dispatch:
@@ -34,7 +34,7 @@ on:
 
 jobs:
   entry:
-    name: Add new pullup entry
+    name: Add new pull-ups entry
     uses: ./.github/workflows/entry.yml
     with:
       exercise: pullups
