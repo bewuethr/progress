@@ -40,6 +40,6 @@ jobs:
       exercise: pushups
       date: ${{ inputs.date }}
       style: ${{ inputs.style }}
-      set1: ${{ inputs.set1 }}
+      set1: ${{ fromJSON(format('{0}', inputs.set1)) }}
       set2: ${{ inputs.set2 }}
       set3: ${{ inputs.set3 }}
