@@ -1,36 +1,32 @@
 name: Add new entry
 
 on:
-  workflow_dispatch:
+  workflow_call:
     inputs:
+      exercise:
+        description: Exercise
+        required: true
+        type: string
       date:
         description: Date
         required: true
-        default: today
         type: string
       style:
         description: Style
         required: true
-        type: choice
-        default: Advanced incline
-        options:
-          - Wall
-          - Incline
-          - Advanced incline
-          - Knee
-          - Full
+        type: string
       set1:
         description: Set 1
         required: true
-        type: string
+        type: number
       set2:
         description: Set 2
         required: true
-        type: string
+        type: number
       set3:
         description: Set 3
-        required: true
-        type: string
+        required: false
+        type: number
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref }}
@@ -53,41 +49,61 @@ jobs:
 
       - name: Update CSV
         env:
+          exercise: ${{ inputs.exercise }}
           dateinput: ${{ inputs.date }}
           style: ${{ inputs.style }}
           set1: ${{ inputs.set1 }}
           set2: ${{ inputs.set2 }}
           set3: ${{ inputs.set3 }}
         run: |
-          printf '%s,%s,%s,%s,%s\n' \
-              "$(date -d "$dateinput" +%F)" "$style" "$set1" "$set2" "$set3" \
-              >> _data/pushups.csv
+          printf -v entry '%s,%s,%d,%d' \
+              "$(date -d "$dateinput" +%F)" "$style" "$set1" "$set2"
+          if ((set3 > 0)); then
+              entry+=",$set3"
+          fi
+
+          csvfile="_data/$exercise.csv"
+
+          printf '%s\n' "$entry" >> "$csvfile"
 
           tmpfile=$(mktemp)
 
-          dates=$(yq -p csv 'map(.Date) | @csv' _data/pushups.csv)
-          set1=$(yq -p csv 'map(.["Set 1"]) | @csv' _data/pushups.csv)
-          set2=$(yq -p csv 'map(.["Set 2"]) | @csv' _data/pushups.csv)
-          set3=$(yq -p csv 'map(.["Set 3"]) | @csv' _data/pushups.csv)
-          style=$(yq -p csv 'map(.Style) | @csv' _data/pushups.csv)
+          dates=$(yq -p csv 'map(.Date) | @csv' "$csvfile")
+          set1=$(yq -p csv 'map(.["Set 1"]) | @csv' "$csvfile")
+          set2=$(yq -p csv 'map(.["Set 2"]) | @csv' "$csvfile")
+          style=$(yq -p csv 'map(.Style) | @csv' "$csvfile")
 
-          jq --arg dates "$dates" \
-              --arg set1 "$set1" \
-              --arg set2 "$set2" \
-              --arg set3 "$set3" \
-              --arg style "$style" '
-                  .labels = ($dates | split(","))
-                  | .datasets[0].data = ($set1 | split(",") | map(tonumber))
-                  | .datasets[1].data = ($set2 | split(",") | map(tonumber))
-                  | .datasets[2].data = ($set3 | split(",") | map(tonumber))
-                  | .datasets[3].data = ($style | split(","))
-          ' assets/pushups.json > "$tmpfile" \
-              && mv "$tmpfile" assets/pushups.json
+          jqargs=(
+              --arg dates "$dates"
+              --arg set1 "$set1"
+              --arg set2 "$set2"
+              --arg style "$style"
+          )
+
+          if ((set3 > 0)); then
+              set3=$(yq -p csv 'map(.["Set 3"]) | @csv' "$csvfile")
+              jqargs+=(--arg set3 "$set3")
+          fi
+
+          jsonfile="assets/$exercise.json"
+
+          jq "${jqargs[@]}" '
+              .labels = ($dates | split(","))
+              | .datasets[0].data = ($set1 | split(",") | map(tonumber))
+              | .datasets[1].data = ($set2 | split(",") | map(tonumber))
+              | if $ARGS.named.set3 != null
+                then .datasets[2].data =
+                  ($ARGS.named.set3 | split(",") | map(tonumber))
+                else .
+                end
+              | .datasets[-1].data = ($style | split(","))
+          ' "$jsonfile" > "$tmpfile" \
+              && mv "$tmpfile" "$jsonfile"
 
           git config --global user.name 'github-actions'
           git config --global user.email \
               '41898282+github-actions[bot]@users.noreply.github.com'
 
-          git add _data/pushups.csv assets/pushups.json
+          git add "$csvfile" "$jsonfile"
           git commit -m "Update pushup data"
           git push
