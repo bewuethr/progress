@@ -14,7 +14,8 @@ export default function drawChart(canvasId, data) {
 						display: true
 					},
 					time: {
-						unit: "day"
+						unit: "day",
+						tooltipFormat: "MMM dd, yyyy"
 					}
 				},
 				y: {
@@ -33,15 +34,6 @@ export default function drawChart(canvasId, data) {
 				tooltip: {
 					position: "average",
 					callbacks: {
-						// Print just YYYY-MM-DD date
-						title: function(items) {
-							let d = new Date(items[0].parsed.x);
-							return d.toLocaleDateString("en-CA", {
-								month: "short",
-								day: "numeric",
-								year: "numeric"
-							});
-						},
 						// Look up style of exercise
 						afterTitle: function(items) {
 							return data.datasets.at(-1).data[items[0].dataIndex];
