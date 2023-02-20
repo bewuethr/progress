@@ -1,0 +1,28 @@
+{
+  "labels": [
+  ],
+  "datasets": [
+    {
+      "label": "Set 1",
+      "data": [
+      ],
+      "borderWidth": 1
+    },
+    {
+      "label": "Set 2",
+      "data": [
+      ],
+      "borderWidth": 1
+    },
+    {
+      "label": "Set 3",
+      "data": [
+      ],
+      "borderWidth": 1
+    },
+    {
+      "data": [
+      ]
+    }
+  ]
+}

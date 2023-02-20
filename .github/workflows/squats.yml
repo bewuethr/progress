@@ -1,0 +1,45 @@
+name: Add squats
+
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: Date
+        required: true
+        default: today
+        type: string
+      style:
+        description: Style
+        required: true
+        type: choice
+        default: Assisted
+        options:
+          - Jackknife
+          - Assisted
+          - Half
+          - Full
+          - Narrow
+      set1:
+        description: Set 1
+        required: true
+        type: string
+      set2:
+        description: Set 2
+        required: true
+        type: string
+      set3:
+        description: Set 3
+        required: true
+        type: string
+
+jobs:
+  entry:
+    name: Add new squats entry
+    uses: ./.github/workflows/entry.yml
+    with:
+      exercise: squats
+      date: ${{ inputs.date }}
+      style: ${{ inputs.style }}
+      set1: ${{ fromJSON(format('{0}', inputs.set1)) }}
+      set2: ${{ fromJSON(format('{0}', inputs.set2)) }}
+      set3: ${{ fromJSON(format('{0}', inputs.set3)) }}
