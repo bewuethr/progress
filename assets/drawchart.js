@@ -12,6 +12,9 @@ export default function drawChart(canvasId, data) {
 					title: {
 						text: "Date",
 						display: true
+					},
+					time: {
+						unit: "day"
 					}
 				},
 				y: {
