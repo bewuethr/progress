@@ -20,4 +20,8 @@ Tracking progress of various things.
 
 {% include section.md workout="legraises" %}
 
+## Squats
+
+{% include section.md workout="squats" %}
+
 <!-- markdownlint-disable-file MD033 -->
