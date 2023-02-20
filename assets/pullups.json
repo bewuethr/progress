@@ -1,14 +1,16 @@
 {
   "labels": [
     "2023-02-06",
-    "2023-02-11"
+    "2023-02-11",
+    "2023-02-20"
   ],
   "datasets": [
     {
       "label": "Set 1",
       "data": [
         50,
-        30
+        30,
+        11
       ],
       "borderWidth": 1
     },
@@ -16,7 +18,8 @@
       "label": "Set 2",
       "data": [
         50,
-        30
+        30,
+        5
       ],
       "borderWidth": 1
     },
@@ -24,14 +27,16 @@
       "label": "Set 3",
       "data": [
         50,
-        30
+        30,
+        2
       ],
       "borderWidth": 1
     },
     {
       "data": [
         "Wall",
-        "Horizontal"
+        "Horizontal",
+        "Advanced horizontal"
       ]
     }
   ]
