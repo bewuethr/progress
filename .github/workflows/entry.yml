@@ -66,6 +66,9 @@ jobs:
 
           printf '%s\n' "$entry" >> "$csvfile"
 
+          yq --inplace --input-format=csv --output-format=csv \
+              'sort_by(.Date)' "$csvfile"
+
           tmpfile=$(mktemp)
 
           dates=$(yq -p csv 'map(.Date) | @csv' "$csvfile")
