@@ -1,0 +1,33 @@
+{
+  "labels": [
+    "2023-02-22"
+  ],
+  "datasets": [
+    {
+      "label": "Set 1",
+      "data": [
+        50
+      ],
+      "borderWidth": 1
+    },
+    {
+      "label": "Set 2",
+      "data": [
+        50
+      ],
+      "borderWidth": 1
+    },
+    {
+      "label": "Set 3",
+      "data": [
+        50
+      ],
+      "borderWidth": 1
+    },
+    {
+      "data": [
+        "Glute"
+      ]
+    }
+  ]
+}

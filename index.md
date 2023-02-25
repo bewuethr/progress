@@ -24,4 +24,12 @@ Tracking progress of various things.
 
 {% include section.md workout="squats" %}
 
+## Bridges
+
+{% include section.md workout="bridges" %}
+
+## Twists
+
+{% include section.md workout="twists" %}
+
 <!-- markdownlint-disable-file MD033 -->
