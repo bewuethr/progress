@@ -12,13 +12,13 @@ Tracking progress of various things.
 
 {% include section.md workout="pushups" %}
 
-## Pull-ups
-
-{% include section.md workout="pullups" %}
-
 ## Leg raises
 
 {% include section.md workout="legraises" %}
+
+## Pull-ups
+
+{% include section.md workout="pullups" %}
 
 ## Squats
 

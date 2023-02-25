@@ -3,8 +3,8 @@
 Tracking progress of various things. So far:
 
 - [Push-ups](https://benjaminwuethrich.dev/progress/#push-ups)
-- [Pull-ups](https://benjaminwuethrich.dev/progress/#pull-ups)
 - [Leg raises](https://benjaminwuethrich.dev/progress/#leg-raises)
+- [Pull-ups](https://benjaminwuethrich.dev/progress/#pull-ups)
 - [Squats](https://benjaminwuethrich.dev/progress/#squats)
 - [Bridges](https://benjaminwuethrich.dev/progress/#bridegs)
 - [Twists](https://benjaminwuethrich.dev/progress/#twists)
