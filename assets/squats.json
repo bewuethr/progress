@@ -1,11 +1,13 @@
 {
   "labels": [
-    "2023-02-20"
+    "2023-02-20",
+    "2023-02-25"
   ],
   "datasets": [
     {
       "label": "Set 1",
       "data": [
+        35,
         35
       ],
       "borderWidth": 1
@@ -13,6 +15,7 @@
     {
       "label": "Set 2",
       "data": [
+        35,
         35
       ],
       "borderWidth": 1
@@ -20,12 +23,14 @@
     {
       "label": "Set 3",
       "data": [
+        35,
         35
       ],
       "borderWidth": 1
     },
     {
       "data": [
+        "Jackknife",
         "Jackknife"
       ]
     }
