@@ -4,6 +4,6 @@ Following [this progression][{{ include.workout }}].
 
 {% include table.md file=include.workout %}
 
-{% include graph.html workout=include.workout %}
+{% include graph.html workout=include.workout ylabel=include.ylabel %}
 
 <!-- markdownlint-disable-file MD041 -->

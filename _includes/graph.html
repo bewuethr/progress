@@ -5,5 +5,5 @@
 <script type="module">
   import data from "./assets/{{ include.workout }}.json" assert { type: "json" };
   import drawChart from "./assets/drawchart.js";
-  drawChart("{{ include.workout }}Chart", data);
+  drawChart("{{ include.workout }}Chart", data, "{{ include.ylabel | default: "Reps" }}");
 </script>

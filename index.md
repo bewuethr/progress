@@ -30,6 +30,6 @@ Tracking progress of various things.
 
 ## Twists
 
-{% include section.md workout="twists" %}
+{% include section.md workout="twists" ylabel="Seconds / side" %}
 
 <!-- markdownlint-disable-file MD033 -->

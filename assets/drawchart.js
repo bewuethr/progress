@@ -1,4 +1,4 @@
-export default function drawChart(canvasId, data) {
+export default function drawChart(canvasId, data, yLabel) {
 	const ctx = document.getElementById(canvasId);
 
 	new Chart(ctx, {
@@ -21,7 +21,7 @@ export default function drawChart(canvasId, data) {
 				y: {
 					beginAtZero: true,
 					title: {
-						text: "Reps",
+						text: yLabel,
 						display: true
 					}
 				}
