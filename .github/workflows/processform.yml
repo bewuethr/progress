@@ -18,6 +18,7 @@ jobs:
         id: fetch
         env:
           issue: ${{ inputs.issue }}
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
           markdown=$(gh issue view "$issue" --json body --jq '.body')
 
@@ -27,4 +28,3 @@ jobs:
         uses: bewuethr/md2json-action@1-create-md2json-action
         with:
           input: ${{ steps.fetch.outputs.markdown }}
-          token: ${{ github.token }}
