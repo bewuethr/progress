@@ -35,7 +35,7 @@ jobs:
           markdown: ${{ fromJSON(steps.fetch.outputs.markdown) }}
 
       - name: Print convert output
-        with:
+        env:
           json: ${{ fromJSON(steps.convert.outputs.json) }}
         run: |
           jq . <<< "$json"
