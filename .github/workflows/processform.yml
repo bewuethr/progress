@@ -29,6 +29,13 @@ jobs:
           echo "markdown=$jsonstr" >> "$GITHUB_OUTPUT"
 
       - name: Convert to JSON
+        id: convert
         uses: bewuethr/md2json-action@1-create-md2json-action
         with:
           markdown: ${{ fromJSON(steps.fetch.outputs.markdown) }}
+
+      - name: Print convert output
+        with:
+          json: ${{ fromJSON(steps.convert.outputs.json) }}
+        run: |
+          jq . <<< "$json"
