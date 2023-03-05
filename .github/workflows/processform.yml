@@ -18,9 +18,11 @@ jobs:
         id: fetch
         env:
           issue: ${{ inputs.issue }}
+          repo: ${{ github.repository }}
           GITHUB_TOKEN: ${{ github.token }}
         run: |
-          markdown=$(gh issue view "$issue" --json body --jq '.body')
+          markdown=$(gh issue view "$issue" \
+              --repo "$repo" --json body --jq '.body')
 
           echo "markdown=$markdown" >> "$GITHUB_OUTPUT"
 
