@@ -30,7 +30,7 @@ jobs:
 
       - name: Convert to JSON
         id: convert
-        uses: bewuethr/md2json-action@1-create-md2json-action
+        uses: bewuethr/md2json-action@main
         with:
           markdown: ${{ fromJSON(steps.fetch.outputs.markdown) }}
 
