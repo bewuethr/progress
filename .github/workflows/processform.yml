@@ -24,9 +24,11 @@ jobs:
           markdown=$(gh issue view "$issue" \
               --repo "$repo" --json body --jq '.body')
 
-          echo "markdown=$markdown" >> "$GITHUB_OUTPUT"
+          jsonstr=$(jq --raw-input --slurp . <<< "$markdown")
+
+          echo "markdown=$jsonstr" >> "$GITHUB_OUTPUT"
 
       - name: Convert to JSON
         uses: bewuethr/md2json-action@1-create-md2json-action
         with:
-          input: ${{ steps.fetch.outputs.markdown }}
+          input: ${{ fromJSON(steps.fetch.outputs.markdown) }}
