@@ -31,4 +31,4 @@ jobs:
       - name: Convert to JSON
         uses: bewuethr/md2json-action@1-create-md2json-action
         with:
-          input: ${{ fromJSON(steps.fetch.outputs.markdown) }}
+          markdown: ${{ fromJSON(steps.fetch.outputs.markdown) }}
