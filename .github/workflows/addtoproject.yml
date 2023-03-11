@@ -12,5 +12,7 @@ jobs:
     uses: bewuethr/workflows/.github/workflows/addtoproject.yml@main
     with:
       project-url: https://github.com/users/bewuethr/projects/1
+      labeled: workout
+      label-operator: NOT
     secrets:
       github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
