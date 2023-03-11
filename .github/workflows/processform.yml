@@ -60,4 +60,4 @@ jobs:
       style: ${{ fromJSON(needs.process.outputs.workout).Style }}
       set1: ${{ fromJSON(format('{0}', fromJSON(needs.process.outputs.workout)['Set 1'])) }}
       set2: ${{ fromJSON(format('{0}', fromJSON(needs.process.outputs.workout)['Set 2'])) }}
-      set3: ${{ fromJSON(format('{0}', fromJSON(needs.process.outputs.workout)['Set 3'])) }}
+      set3: ${{ fromJSON(format('{0}', fromJSON(needs.process.outputs.workout)['Set 3'] || 0)) }}
