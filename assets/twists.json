@@ -2,12 +2,14 @@
   "labels": [
     "2023-02-22",
     "2023-02-27",
-    "2023-03-05"
+    "2023-03-05",
+    "2023-03-10"
   ],
   "datasets": [
     {
       "label": "Set 1",
       "data": [
+        60,
         60,
         60,
         60
@@ -19,6 +21,7 @@
       "data": [
         60,
         60,
+        60,
         60
       ],
       "borderWidth": 1
@@ -28,12 +31,14 @@
       "data": [
         60,
         60,
+        60,
         60
       ],
       "borderWidth": 1
     },
     {
       "data": [
+        "Straight leg",
         "Straight leg",
         "Straight leg",
         "Straight leg"
