@@ -13,7 +13,7 @@ jobs:
     name: Process an input form
     runs-on: ubuntu-22.04
     outputs:
-      workout: ${{ steps.format.outputs.format }}
+      workout: ${{ steps.format.outputs.workout }}
 
     steps:
       - name: Fetch form Markdown content
@@ -41,17 +41,6 @@ jobs:
         env:
           json: ${{ fromJSON(steps.convert.outputs.json) }}
         run: |
-          jq . <<< "$json"
-
-          jq '
-              .children
-              | map(.children[0].value)
-              | . as $in
-              | [range(0; $in | length; 2)]
-              | map({key: $in[.], value: $in[.+1]})
-              | from_entries
-          ' <<< "$json"
-
           jq --compact-output '
               .children
               | map(.children[0].value)
