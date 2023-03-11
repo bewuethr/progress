@@ -37,7 +37,7 @@ jobs:
       - name: Delete issue
         env:
           issue: ${{ github.event.issue.number }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.DELETE_ISSUES_PAT }}
         run: |
           gh issue delete "$issue" --repo "$GITHUB_REPOSITORY" --yes
 
