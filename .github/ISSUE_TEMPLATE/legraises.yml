@@ -4,6 +4,10 @@ title: Record leg raises
 labels: workout
 
 body:
+  - type: markdown
+    attributes:
+      value: '### Leg raises'
+
   - type: input
     attributes:
       label: Date
