@@ -1,40 +1,44 @@
 name: Process input form
 
 on:
-  workflow_dispatch:
-    inputs:
-      issue:
-        description: Number of issue to use
-        required: true
-        type: string
+  issues:
+    types:
+      - opened
+  # workflow_dispatch:
+  #   inputs:
+  #     issue:
+  #       description: Number of issue to use
+  #       required: true
+  #       type: string
 
 jobs:
   process:
     name: Process an input form
+    if: contains(github.event.issue.labels.*.name, 'workout')
     runs-on: ubuntu-22.04
     outputs:
       workout: ${{ steps.format.outputs.workout }}
 
     steps:
-      - name: Fetch form Markdown content
-        id: fetch
-        env:
-          issue: ${{ inputs.issue }}
-          repo: ${{ github.repository }}
-          GITHUB_TOKEN: ${{ github.token }}
-        run: |
-          markdown=$(gh issue view "$issue" \
-              --repo "$repo" --json body --jq '.body')
+      # - name: Fetch form Markdown content
+      #   id: fetch
+      #   env:
+      #     issue: ${{ inputs.issue }}
+      #     repo: ${{ github.repository }}
+      #     GITHUB_TOKEN: ${{ github.token }}
+      #   run: |
+      #     markdown=$(gh issue view "$issue" \
+      #         --repo "$repo" --json body --jq '.body')
 
-          jsonstr=$(jq --raw-input --slurp . <<< "$markdown")
+      #     jsonstr=$(jq --raw-input --slurp . <<< "$markdown")
 
-          echo "markdown=$jsonstr" >> "$GITHUB_OUTPUT"
+      #     echo "markdown=$jsonstr" >> "$GITHUB_OUTPUT"
 
       - name: Convert to JSON
         id: convert
         uses: bewuethr/md2json-action@main
         with:
-          markdown: ${{ fromJSON(steps.fetch.outputs.markdown) }}
+          markdown: ${{ github.event.issues.body }}
 
       - name: Reformat converted output
         id: format
