@@ -44,21 +44,27 @@ jobs:
           jq . <<< "$json"
 
           jq '
-              . as $in
+              .children
+              | map(.children[0].value)
+              | . as $in
               | [range(0; $in | length; 2)]
               | map({key: $in[.], value: $in[.+1]})
               | from_entries
           ' <<< "$json"
 
           jq --compact-output '
-              . as $in
+              .children
+              | map(.children[0].value)
+              | . as $in
               | [range(0; $in | length; 2)]
               | map({key: $in[.], value: $in[.+1]})
               | from_entries
           ' <<< "$json"
 
           output=$(jq --compact-output '
-              . as $in
+              .children
+              | map(.children[0].value)
+              | . as $in
               | [range(0; $in | length; 2)]
               | map({key: $in[.], value: $in[.+1]})
               | from_entries
