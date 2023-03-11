@@ -13,12 +13,6 @@ jobs:
     name: Process an input form
     runs-on: ubuntu-22.04
     outputs:
-      exercise: ${{ steps.format.outputs.exercise }}
-      date: ${{ steps.format.outputs.date }}
-      style: ${{ steps.format.outputs.style }}
-      set1: ${{ steps.format.outputs.set1 }}
-      set2: ${{ steps.format.outputs.set2 }}
-      set3: ${{ steps.format.outputs.set3 }}
       workout: ${{ steps.format.outputs.workout }}
 
     steps:
@@ -47,24 +41,14 @@ jobs:
         env:
           json: ${{ fromJSON(steps.convert.outputs.json) }}
         run: |
-          jq --raw-output '
-              .children
-              | map(.children[0].value)
-              | . as $in
-              | [range(0; $in | length; 2)]
-              | map("\($in[.] | ascii_downcase | sub(" ";""))=\($in[.+1])")[]
-          ' <<< "$json" >> "$GITHUB_OUTPUT"
-
-          workout=$(jq --compact-output '
+          echo "workout=$(jq --compact-output '
               .children
               | map(.children[0].value)
               | . as $in
               | [range(0; $in | length; 2)]
               | map({key: $in[.], value: $in[.+1]})
               | from_entries
-          ' <<< "$json")
-
-          echo "workout=$workout" >> "$GITHUB_OUTPUT"
+          ' <<< "$json")" >> "$GITHUB_OUTPUT"
 
   entry:
     name: Print workout
@@ -72,14 +56,8 @@ jobs:
     needs: process
 
     steps:
-      - name: Dump JSON
+      - name: Dump data
         env:
-          exercise: ${{ needs.process.outputs.exercise }}
-          date: ${{ needs.process.outputs.date }}
-          style: ${{ needs.process.outputs.style }}
-          set1: ${{ needs.process.outputs.set1 }}
-          set2: ${{ needs.process.outputs.set2 }}
-          set3: ${{ needs.process.outputs.set3 }}
           wexercise: ${{ fromJSON(needs.process.outputs.workout).Exercise }}
           wdate: ${{ fromJSON(needs.process.outputs.workout).Date }}
           wstyle: ${{ fromJSON(needs.process.outputs.workout).Style }}
@@ -87,13 +65,6 @@ jobs:
           wset2: ${{ fromJSON(needs.process.outputs.workout)['Set 2'] }}
           wset3: ${{ fromJSON(needs.process.outputs.workout)['Set 3'] }}
         run: |
-          echo "exercise: $exercise"
-          echo "date: $date"
-          echo "style: $style"
-          echo "set1: $set1"
-          echo "set2: $set2"
-          echo "set3: $set3"
-
           echo "wexercise: $wexercise"
           echo "wdate: $wdate"
           echo "wstyle: $wstyle"
