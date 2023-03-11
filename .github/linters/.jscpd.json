@@ -1,5 +1,10 @@
 {
+  "threshold": 0,
+  "reporters": [
+    "consoleFull"
+  ],
   "ignore": [
     ".github/ISSUE_TEMPLATE/pushups.yml"
-  ]
+  ],
+  "absolute": true
 }
