@@ -9,8 +9,8 @@ body:
       label: Exercise
       options:
         - legraises
-      validations:
-        required: true
+    validations:
+      required: true
 
   - type: input
     attributes:
