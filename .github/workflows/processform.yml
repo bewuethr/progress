@@ -39,7 +39,7 @@ jobs:
       - name: Reformat converted output
         id: format
         env:
-          json: ${{ fromJSON(steps.convert.outputs.json) }}
+          json: ${{ toJSON(steps.convert.outputs.json) }}
         run: |
           jq '
               . as $in
