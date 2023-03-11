@@ -34,6 +34,13 @@ jobs:
               | from_entries
           ' <<< "$json")" >> "$GITHUB_OUTPUT"
 
+      - name: Delete issue
+        env:
+          issue: ${{ github.event.issue.number }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue delete "$issue" --repo "$GITHUB_REPOSITORY" --yes
+
   entry:
     name: Add new entry
     needs: process
