@@ -4,9 +4,13 @@ title: Record leg raises
 labels: workout
 
 body:
-  - type: markdown
+  - type: dropdown
     attributes:
-      value: '### Leg raises'
+      label: Exercise
+      options:
+        - legraises
+      validations:
+        required: true
 
   - type: input
     attributes:
