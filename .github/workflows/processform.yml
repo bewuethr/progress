@@ -51,23 +51,13 @@ jobs:
           ' <<< "$json")" >> "$GITHUB_OUTPUT"
 
   entry:
-    name: Print workout
-    runs-on: ubuntu-22.04
+    name: Add new entry
     needs: process
-
-    steps:
-      - name: Dump data
-        env:
-          wexercise: ${{ fromJSON(needs.process.outputs.workout).Exercise }}
-          wdate: ${{ fromJSON(needs.process.outputs.workout).Date }}
-          wstyle: ${{ fromJSON(needs.process.outputs.workout).Style }}
-          wset1: ${{ fromJSON(needs.process.outputs.workout)['Set 1'] }}
-          wset2: ${{ fromJSON(needs.process.outputs.workout)['Set 2'] }}
-          wset3: ${{ fromJSON(needs.process.outputs.workout)['Set 3'] }}
-        run: |
-          echo "wexercise: $wexercise"
-          echo "wdate: $wdate"
-          echo "wstyle: $wstyle"
-          echo "wset1: $wset1"
-          echo "wset2: $wset2"
-          echo "wset3: $wset3"
+    uses: ./.github/workflows/entry.yml
+    with:
+      exercise: ${{ fromJSON(needs.process.outputs.workout).Exercise }}
+      date: ${{ fromJSON(needs.process.outputs.workout).Date }}
+      style: ${{ fromJSON(needs.process.outputs.workout).Style }}
+      set1: ${{ fromJSON(needs.process.outputs.workout)['Set 1'] }}
+      set2: ${{ fromJSON(needs.process.outputs.workout)['Set 2'] }}
+      set3: ${{ fromJSON(needs.process.outputs.workout)['Set 3'] }}
