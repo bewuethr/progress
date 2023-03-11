@@ -62,9 +62,6 @@ jobs:
               entry+=",$set3"
           fi
 
-          printf '%s\n' "Entry: $entry"
-          exit
-
           csvfile="_data/$exercise.csv"
 
           printf '%s\n' "$entry" >> "$csvfile"
