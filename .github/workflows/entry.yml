@@ -29,8 +29,7 @@ on:
         type: number
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.head_ref }}
-  cancel-in-progress: true
+  group: ${{ github.workflow }}
 
 env:
   TZ: America/Toronto
