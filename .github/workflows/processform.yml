@@ -13,7 +13,12 @@ jobs:
     name: Process an input form
     runs-on: ubuntu-22.04
     outputs:
-      workout: ${{ steps.format.outputs.workout }}
+      exercise: ${{ steps.format.outputs.exercise }}
+      date: ${{ steps.format.outputs.date }}
+      style: ${{ steps.format.outputs.style }}
+      set1: ${{ steps.format.outputs.set1 }}
+      set2: ${{ steps.format.outputs.set2 }}
+      set3: ${{ steps.format.outputs.set3 }}
 
     steps:
       - name: Fetch form Markdown content
@@ -41,25 +46,13 @@ jobs:
         env:
           json: ${{ fromJSON(steps.convert.outputs.json) }}
         run: |
-          jq --compact-output '
+          jq --raw-output '
               .children
               | map(.children[0].value)
               | . as $in
               | [range(0; $in | length; 2)]
-              | map({key: $in[.], value: $in[.+1]})
-              | from_entries
-          ' <<< "$json"
-
-          output=$(jq --compact-output '
-              .children
-              | map(.children[0].value)
-              | . as $in
-              | [range(0; $in | length; 2)]
-              | map({key: $in[.], value: $in[.+1]})
-              | from_entries
-          ' <<< "$json")
-
-          echo "workout=$output" >> "$GITHUB_OUTPUT"
+              | map("\($in[.] | ascii_downcase | sub(" ";""))=\($in[.+1])")[]
+          ' <<< "$json" >> "$GITHUB_OUTPUT"
 
   entry:
     name: Print workout
@@ -69,6 +62,16 @@ jobs:
     steps:
       - name: Dump JSON
         env:
-          workout: ${{ needs.process.outputs.workout }}
+          exercise: ${{ needs.process.outputs.exercise }}
+          date: ${{ needs.process.outputs.date }}
+          style: ${{ needs.process.outputs.style }}
+          set1: ${{ needs.process.outputs.set1 }}
+          set2: ${{ needs.process.outputs.set2 }}
+          set3: ${{ needs.process.outputs.set3 }}
         run: |
-          jq . <<< "$workout"
+          echo "exercise: $exercise"
+          echo "date: $date"
+          echo "style: $style"
+          echo "set1: $set1"
+          echo "set2: $set2"
+          echo "set3: $set3"
