@@ -19,6 +19,7 @@ jobs:
       set1: ${{ steps.format.outputs.set1 }}
       set2: ${{ steps.format.outputs.set2 }}
       set3: ${{ steps.format.outputs.set3 }}
+      workout: ${{ steps.format.outputs.workout }}
 
     steps:
       - name: Fetch form Markdown content
@@ -54,6 +55,17 @@ jobs:
               | map("\($in[.] | ascii_downcase | sub(" ";""))=\($in[.+1])")[]
           ' <<< "$json" >> "$GITHUB_OUTPUT"
 
+          workout=$(jq --compact-output '
+              .children
+              | map(.children[0].value)
+              | . as $in
+              | [range(0; $in | length; 2)]
+              | map({key: $in[.], value: $in[.+1]})
+              | from_entries
+          ' <<< "$json")
+
+          echo "workout=$workout" >> "$GITHUB_OUTPUT"
+
   entry:
     name: Print workout
     runs-on: ubuntu-22.04
@@ -68,6 +80,12 @@ jobs:
           set1: ${{ needs.process.outputs.set1 }}
           set2: ${{ needs.process.outputs.set2 }}
           set3: ${{ needs.process.outputs.set3 }}
+          wexercise: ${{ fromJSON(needs.process.outputs.workout).Exercise }}
+          wdate: ${{ fromJSON(needs.process.outputs.workout).Date }}
+          wstyle: ${{ fromJSON(needs.process.outputs.workout).Style }}
+          wset1: ${{ fromJSON(needs.process.outputs.workout)['Set 1'] }}
+          wset2: ${{ fromJSON(needs.process.outputs.workout)['Set 2'] }}
+          wset3: ${{ fromJSON(needs.process.outputs.workout)['Set 3'] }}
         run: |
           echo "exercise: $exercise"
           echo "date: $date"
@@ -75,3 +93,10 @@ jobs:
           echo "set1: $set1"
           echo "set2: $set2"
           echo "set3: $set3"
+
+          echo "wexercise: $wexercise"
+          echo "wdate: $wdate"
+          echo "wstyle: $wstyle"
+          echo "wset1: $wset1"
+          echo "wset2: $wset2"
+          echo "wset3: $wset3"
