@@ -1,0 +1,213 @@
+name: Add bridges
+description: Add a bridges
+title: Record bridges
+labels: workout
+
+body:
+  - type: dropdown
+    attributes:
+      label: Exercise
+      options:
+        - pullups
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: Date
+      description: >
+        When did the workout take place? (Format in a way GNU date can
+        understand.)
+      placeholder: YYYY-MM-DD
+      value: today
+    validations:
+      required: true
+
+  - type: dropdown
+    attributes:
+      label: Style
+      description: What progression level was this on?
+      options:
+        - Glute
+        - Straight
+        - Wall
+        - Incline
+        - Head
+        - Full
+        - Wheel
+    validations:
+      required: true
+
+  - type: dropdown
+    attributes:
+      label: Set 1
+      description: How many bridges in set 1?
+      options:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        - 11
+        - 12
+        - 13
+        - 14
+        - 15
+        - 16
+        - 17
+        - 18
+        - 19
+        - 20
+        - 21
+        - 22
+        - 23
+        - 24
+        - 25
+        - 26
+        - 27
+        - 28
+        - 29
+        - 30
+        - 31
+        - 32
+        - 33
+        - 34
+        - 35
+        - 36
+        - 37
+        - 38
+        - 39
+        - 40
+        - 41
+        - 42
+        - 43
+        - 44
+        - 45
+        - 46
+        - 47
+        - 48
+        - 49
+        - 50
+    validations:
+      required: true
+
+  - type: dropdown
+    attributes:
+      label: Set 2
+      description: How many bridges in set 2?
+      options:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        - 11
+        - 12
+        - 13
+        - 14
+        - 15
+        - 16
+        - 17
+        - 18
+        - 19
+        - 20
+        - 21
+        - 22
+        - 23
+        - 24
+        - 25
+        - 26
+        - 27
+        - 28
+        - 29
+        - 30
+        - 31
+        - 32
+        - 33
+        - 34
+        - 35
+        - 36
+        - 37
+        - 38
+        - 39
+        - 40
+        - 41
+        - 42
+        - 43
+        - 44
+        - 45
+        - 46
+        - 47
+        - 48
+        - 49
+        - 50
+    validations:
+      required: true
+
+  - type: dropdown
+    attributes:
+      label: Set 3
+      description: How many bridges in set 3?
+      options:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        - 11
+        - 12
+        - 13
+        - 14
+        - 15
+        - 16
+        - 17
+        - 18
+        - 19
+        - 20
+        - 21
+        - 22
+        - 23
+        - 24
+        - 25
+        - 26
+        - 27
+        - 28
+        - 29
+        - 30
+        - 31
+        - 32
+        - 33
+        - 34
+        - 35
+        - 36
+        - 37
+        - 38
+        - 39
+        - 40
+        - 41
+        - 42
+        - 43
+        - 44
+        - 45
+        - 46
+        - 47
+        - 48
+        - 49
+        - 50
+    validations:
+      required: true
