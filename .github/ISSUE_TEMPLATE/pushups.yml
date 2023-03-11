@@ -4,6 +4,14 @@ title: Record push-ups
 labels: workout
 
 body:
+  - type: dropdown
+    attributes:
+      label: Exercise
+      options:
+        - pushups
+    validations:
+      required: true
+
   - type: input
     attributes:
       label: Date
