@@ -38,7 +38,7 @@ jobs:
         id: convert
         uses: bewuethr/md2json-action@main
         with:
-          markdown: ${{ github.event.issues.body }}
+          markdown: ${{ github.event.issue.body }}
 
       - name: Reformat converted output
         id: format
