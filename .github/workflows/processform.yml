@@ -8,7 +8,9 @@ on:
 jobs:
   process:
     name: Process an input form
-    if: contains(github.event.issue.labels.*.name, 'workout')
+    if: >
+      contains(github.event.issue.labels.*.name, 'workout')
+        && github.event.sender == 'bewuethr'
     runs-on: ubuntu-22.04
     outputs:
       workout: ${{ steps.format.outputs.workout }}
