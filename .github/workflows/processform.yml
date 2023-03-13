@@ -10,12 +10,12 @@ jobs:
     name: Process an input form
     if: >
       contains(github.event.issue.labels.*.name, 'workout')
+        && github.event.sender.login == 'bewuethr'
     runs-on: ubuntu-22.04
     outputs:
       workout: ${{ steps.format.outputs.workout }}
 
     steps:
-      - run: jq . "$GITHUB_EVENT_PATH"
       - name: Convert to JSON
         id: convert
         uses: bewuethr/md2json-action@main
