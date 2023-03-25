@@ -2,6 +2,10 @@
 
 Tracking progress of various things.
 
+[**Combined table**](combined.md)
+
+On this page:
+
 - (placeholder)
 {:toc}
 
