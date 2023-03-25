@@ -36,10 +36,10 @@
 {%- assign arr = list | split: "|" | sort %}
 {%- for entry in arr %}
   {%- assign columns = entry | split: "," %}
-  | {{ columns[0] }} | 
-  {{- columns[5] }} | 
-  {{- columns[1] }} | 
-  {{- columns[2] }} | 
-  {{- columns[3] }} | 
+  | {{ columns[0] }} |
+  {{- columns[5] }} |
+  {{- columns[1] }} |
+  {{- columns[2] }} |
+  {{- columns[3] }} |
   {{- columns[4] }} |
 {%- endfor %}
