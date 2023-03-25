@@ -3,7 +3,8 @@
 </div>
 
 <script type="module">
-  import data from "./assets/{{ include.workout }}.json" assert { type: "json" };
+  const response = await fetch("assets/{{ include.workout }}.json");
+  const data = await response.json();
   import drawChart from "./assets/drawchart.js";
   drawChart("{{ include.workout }}Chart", data, "{{ include.ylabel | default: "Reps" }}");
 </script>
