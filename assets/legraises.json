@@ -9,12 +9,14 @@
     "2023-03-03",
     "2023-03-06",
     "2023-03-13",
-    "2023-03-25"
+    "2023-03-25",
+    "2023-04-02"
   ],
   "datasets": [
     {
       "label": "Set 1",
       "data": [
+        30,
         30,
         30,
         30,
@@ -40,6 +42,7 @@
         30,
         30,
         30,
+        30,
         30
       ],
       "borderWidth": 1
@@ -51,6 +54,7 @@
         "Knee",
         "Knee",
         "Knee",
+        "Advanced knee",
         "Advanced knee",
         "Advanced knee",
         "Advanced knee",
