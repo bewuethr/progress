@@ -30,8 +30,8 @@ body:
       options:
         - Knee
         - Advanced knee
-        - Alternating leg
-        - Full leg
+        - Alternating
+        - Full
         - Tuck plow
     validations:
       required: true
