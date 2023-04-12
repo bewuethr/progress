@@ -9,9 +9,10 @@ Tracking progress of various things. So far:
 - [Bridges](https://benjaminwuethrich.dev/progress/#bridegs)
 - [Twists](https://benjaminwuethrich.dev/progress/#twists)
 
-Built with [Jekyll] and [Chart.js]; the "CMS" is a manually triggered reusable
-[GitHub workflow][wf].
+Built with [Jekyll] and [Chart.js]; the "CMS" is issue templates triggering
+GitHub workflows to [process the issue][process] and [update the data][data].
 
 [jekyll]: <https://jekyllrb.com/>
 [chart.js]: <https://www.chartjs.org/>
-[wf]: <https://github.com/bewuethr/progress/blob/main/.github/workflows/entry.yml>
+[process]: <https://github.com/bewuethr/progress/blob/main/.github/workflows/processform.yml>
+[data]: <https://github.com/bewuethr/progress/blob/main/.github/workflows/entry.yml>
