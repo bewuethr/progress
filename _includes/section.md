@@ -10,4 +10,4 @@ Following [this progression][{{ include.workout }}].
 
 </details>
 
-<!-- markdownlint-disable-file MD041 -->
+<!-- markdownlint-disable-file MD033 MD041 -->
