@@ -9,7 +9,8 @@
     "2023-03-18",
     "2023-03-26",
     "2023-04-07",
-    "2023-04-12"
+    "2023-04-12",
+    "2023-04-19"
   ],
   "datasets": [
     {
@@ -24,7 +25,8 @@
         14,
         14,
         16,
-        16
+        16,
+        18
       ],
       "borderWidth": 1
     },
@@ -40,7 +42,8 @@
         8,
         9,
         8,
-        9
+        9,
+        11
       ],
       "borderWidth": 1
     },
@@ -56,7 +59,8 @@
         7,
         6,
         5,
-        8
+        8,
+        10
       ],
       "borderWidth": 1
     },
@@ -64,6 +68,7 @@
       "data": [
         "Wall",
         "Horizontal",
+        "Advanced horizontal",
         "Advanced horizontal",
         "Advanced horizontal",
         "Advanced horizontal",
