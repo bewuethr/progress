@@ -33,7 +33,7 @@
 
 | Date | Exercise | Style | Set 1 | Set 2 | Set 3 |
 | ---: | -------- | ------| ----: | ----: | ----: |
-{%- assign arr = list | split: "|" | sort %}
+{%- assign arr = list | split: "|" | sort | reverse %}
 {%- for entry in arr %}
   {%- assign columns = entry | split: "," %}
   | {{ columns[0] }} |
