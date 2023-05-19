@@ -28,7 +28,8 @@
     "2023-04-23",
     "2023-04-30",
     "2023-05-06",
-    "2023-05-15"
+    "2023-05-15",
+    "2023-05-19"
   ],
   "datasets": [
     {
@@ -62,7 +63,8 @@
         35,
         35,
         35,
-        35
+        35,
+        30
       ],
       "borderWidth": 1
     },
@@ -97,7 +99,8 @@
         26,
         27,
         27,
-        29
+        29,
+        15
       ],
       "borderWidth": 1
     },
@@ -132,7 +135,8 @@
         21,
         23,
         22,
-        22
+        22,
+        11
       ],
       "borderWidth": 1
     },
@@ -142,6 +146,7 @@
         "Incline",
         "Incline",
         "Incline",
+        "Advanced incline",
         "Advanced incline",
         "Advanced incline",
         "Advanced incline",
