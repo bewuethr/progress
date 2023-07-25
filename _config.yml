@@ -1,2 +1,5 @@
 kramdown:
   toc_levels: '2'
+
+optional_front_matter:
+  remove_originals: true
