@@ -4,12 +4,8 @@
     "consoleFull"
   ],
   "ignore": [
-    "/github/workspace/.github/ISSUE_TEMPLATE/bridges.yml",
-    "/github/workspace/.github/ISSUE_TEMPLATE/legraises.yml",
-    "/github/workspace/.github/ISSUE_TEMPLATE/pullups.yml",
-    "/github/workspace/.github/ISSUE_TEMPLATE/pushups.yml",
-    "/github/workspace/.github/ISSUE_TEMPLATE/squats.yml",
-    "/github/workspace/.github/ISSUE_TEMPLATE/twists.yml"
+    "/github/workspace/.github/ISSUE_TEMPLATE/*.yml",
+    "/github/workspace/assets/*.json"
   ],
   "absolute": true
 }
