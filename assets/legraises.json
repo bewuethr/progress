@@ -19,7 +19,8 @@
     "2023-05-15",
     "2023-05-19",
     "2023-07-10",
-    "2023-08-12"
+    "2023-08-12",
+    "2023-08-20"
   ],
   "datasets": [
     {
@@ -37,6 +38,7 @@
         30,
         30,
         22,
+        25,
         25,
         25,
         25,
@@ -70,6 +72,7 @@
         25,
         25,
         15,
+        25,
         25
       ],
       "borderWidth": 1
@@ -87,6 +90,7 @@
         "Advanced knee",
         "Advanced knee",
         "Advanced knee",
+        "Alternating",
         "Alternating",
         "Alternating",
         "Alternating",
