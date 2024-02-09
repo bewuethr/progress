@@ -31,6 +31,7 @@
 {%- endfor %}
 {%- endcapture %}
 
+<!-- markdownlint-disable MD055 MD056 -->
 | Date | Exercise | Style | Set 1 | Set 2 | Set 3 |
 | ---: | -------- | ------| ----: | ----: | ----: |
 {%- assign arr = list | split: "|" | sort | reverse %}
