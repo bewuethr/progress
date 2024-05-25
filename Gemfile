@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "3.3.0"
+ruby file: ".tool-versions"
 
 gem "github-pages", "~> 231", group: :jekyll_plugins
 gem "csv", "~> 3.2"
