@@ -50,6 +50,8 @@ jobs:
     name: Add new entry
     needs: process
     uses: ./.github/workflows/entry.yml
+    permissions:
+      contents: write
     with:
       exercise: ${{ fromJSON(needs.process.outputs.workout).Exercise }}
       date: ${{ fromJSON(needs.process.outputs.workout).Date }}
