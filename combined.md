@@ -31,7 +31,7 @@
 {%- endfor %}
 {%- endcapture %}
 
-<!-- markdownlint-disable MD055 MD056 -->
+<!-- markdownlint-disable MD055 MD056 MD060 -->
 
 | Date | Exercise | Style | Set 1 | Set 2 | Set 3 |
 | ---: | -------- | ------| ----: | ----: | ----: |
