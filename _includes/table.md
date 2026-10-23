@@ -22,4 +22,4 @@
   {{ tablerow -}}
 {%- endfor %}
 
-<!-- markdownlint-disable-file MD041 -->
+<!-- markdownlint-disable-file MD041 MD052 -->
