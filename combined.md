@@ -4,6 +4,8 @@
 
 ## All workouts
 
+<!-- markdownlint-disable MD052 -->
+
 {% capture list %}
 {%- for file in site.data %}
   {%- case file[0] %}
@@ -31,7 +33,7 @@
 {%- endfor %}
 {%- endcapture %}
 
-<!-- markdownlint-disable MD052 MD055 MD056 MD060 -->
+<!-- markdownlint-disable MD055 MD056 MD060 -->
 
 | Date | Exercise | Style | Set 1 | Set 2 | Set 3 |
 | ---: | -------- | ------| ----: | ----: | ----: |
